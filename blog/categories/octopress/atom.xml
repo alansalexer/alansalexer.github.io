@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: octopress | My Octopress Blog]]></title>
+  <link href="http://alansalexer.github.io/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://alansalexer.github.io/"/>
+  <updated>2014-03-17T01:13:04+08:00</updated>
+  <id>http://alansalexer.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress on OpenShift]]></title>
+    <link href="http://alansalexer.github.io/blog/2013/06/14/octopress-on-openshift/"/>
+    <updated>2013-06-14T06:55:00+08:00</updated>
+    <id>http://alansalexer.github.io/blog/2013/06/14/octopress-on-openshift</id>
+    <content type="html"><![CDATA[<p>Deploying <a href="http://octopress.org/">Octopress</a> or <a href="http://jekyllrb.com/">Jekyll</a> based website on <a href="http://pages.github.com/">GitHub Pages</a>
+is really easy, just create a repo named <code>username.github.io</code> or
+create gh-pages branch in the project repository, or we can deploy it to <a href="https://www.heroku.com/">Heroku</a>. A website generated from
+Jekyll is a real static website. What you see is really what you see. The dynamic content laying on embedding Javascript in the html pages.</p>
+
+<p>With <a href="https://www.openshift.com/">OpenShift</a> we can host Octopress based website like on GitHub pages. We just host the static content and managing it with git. I found two methods to do this. First, just using Webrick server. Second, install nginx on our hosting platform.</p>
+
+<!-- more -->
+
+
+<h2>The Easy Way</h2>
+
+<p>The easy way is the first method. Create an application with <em>Do It Yourself</em> catridge, we can do it from Web console or with command-line:</p>
+
+<pre><code>$ rhc app create myapp diy-0.1
+</code></pre>
+
+<p>Clone our application using git. And create a folder named public. Open <code>diy/testrubyserver.rb</code> using text editor, and edit some lines.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>testrubyserver.rb </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;h1&gt;!/us</span><span class="n">r</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">env</span> <span class="n">ruby</span><span class="o">&lt;</span><span class="sr">/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;p&gt;require &amp;lsquo;webrick&amp;rsquo;</span>
+</span><span class='line'><span class="sr">include WEBrick&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="n">dir</span> <span class="o">=</span> <span class="no">ENV</span><span class="o">[&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="no">OPENSHIFT_REPO_DIR</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span><span class="o">]&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;p&gt;config = {}</span>
+</span><span class='line'><span class="sr">config.update(:Port =&gt; 8080)</span>
+</span><span class='line'><span class="sr">config.update(:BindAddress =&gt; ARGV[0])</span>
+</span><span class='line'><span class="sr">config.update(:DocumentRoot =&gt; dir + &amp;lsquo;public&amp;rsquo;)</span>
+</span><span class='line'><span class="sr">server = HTTPServer.new(config)</span>
+</span><span class='line'><span class="sr">[&amp;lsquo;INT&amp;rsquo;, &amp;lsquo;TERM&amp;rsquo;].each {|signal|</span>
+</span><span class='line'><span class="sr">  trap(signal) {server.shutdown}</span>
+</span><span class='line'><span class="sr">}&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="n">server</span><span class="o">.</span><span class="n">start</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>We can manually copy our generated website to public folder and push it. Or we can modify <code>Rakefile</code> to automatically doing it for us. I made some changes in Octopress default <code>Rakefile</code> and posted on <a href="https://gist.github.com/rezajatnika/5857236">gist</a>. Move your app directory to Octopress root directory. Use <code>rake deploy</code> to automatically generate and push our website. Change deploy folder to your own.</p>
+
+<h2>The Less Easy Way</h2>
+
+<p>The second method is using nginx as a web server to host our generated website. Of course we have to install nginx first. To do this, log in into your
+application using ssh. Use <code>rhc show -a myapp</code> to see ssh address of your application. Or you can use some repo templates for automatically install nginx
+on OpenShift.</p>
+
+<pre><code>$ ssh &lt;random-string&gt;@myapp-mydomain.rhcloud.com
+</code></pre>
+
+<p>Now we can start the nginx installation. Navigate to the tmp dir and download the nginx source.</p>
+
+<pre><code>$ cd $OPENSHIFT_TMP_DIR
+$ wget http://nginx.org/download/nginx-1.4.1.tar.gz
+$ wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.31.tar.bz2
+$ tar jxf pcre-8.31.tar.bz2
+$ tar zxf nginx-1.4.1.tar.gz
+$ cd nginx-1.4.1
+$ ./configure --prefix=$OPENSHIFT_DATA_DIR --with-pcre=$OPENSHIFT_TMP_DIR/pcre-8.31
+</code></pre>
+
+<p>Now we can compile and install nginx.</p>
+
+<pre><code>$ make install
+</code></pre>
+
+<p>See this page to read more about OpenShift environment variables. OpenShift only allow an internal IP address and port for your application which are available through <code>$OPENSHIFT_DIY_IP</code> and <code>$OPENSHIFT_DIY_PORT</code> enviroment variables. And these values may change. We need to do a little trick here to bind the internal IP address and port in nginx configuration dynamically. I preffer using the <code>erb</code> command. Rename the default configuration file.</p>
+
+<pre><code>$ mv $OPENSHIFT_DATA_DIR/conf/nginx.conf $OPENSHIFT_DATA_DIR/conf/nginx.conf.def
+</code></pre>
+
+<p>We will modify create the configuration file using when the start action hook is called. Now browse to our app directory, and open
+<code>.openshift/action_hooks/start</code> using text editor. Add these lines below:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>start </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;!/bin/bash&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;The logic to start up your application should be put in this&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;script.&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;TEMPLATES_DIR<span class="o">=</span><span class="k">${</span><span class="nv">OPENSHIFT_REPO_DIR</span><span class="k">}</span>/.openshift/templates
+</span><span class='line'><span class="nv">INSTALL_DIR</span><span class="o">=</span><span class="k">${</span><span class="nv">OPENSHIFT_HOMEDIR</span><span class="k">}</span>/app-root/data&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;erb <span class="k">${</span><span class="nv">TEMPLATES_DIR</span><span class="k">}</span>/nginx.conf.erb &gt; <span class="k">${</span><span class="nv">INSTALL_DIR</span><span class="k">}</span>/conf/nginx.conf&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;echo &amp;ldquo;Starting nginx&amp;hellip;&amp;rdquo;
+</span><span class='line'>nohup <span class="k">${</span><span class="nv">INSTALL_DIR</span><span class="k">}</span>/sbin/nginx &gt; <span class="k">${</span><span class="nv">INSTALL_DIR</span><span class="k">}</span>/logs/server.log 2&gt;&amp;amp;1 &amp;amp;
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Modify <code>.openshift/action_hooks/stop</code> so nginx also stop everytime we make a push.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>stop </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;!/bin/bash&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;The logic to stop your application should be put in this script.&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;INSTALL_DIR<span class="o">=</span><span class="k">${</span><span class="nv">OPENSHIFT_HOMEDIR</span><span class="k">}</span>/app-root/data&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;echo &amp;ldquo;Stopping nginx&amp;hellip;&amp;rdquo;
+</span><span class='line'><span class="nb">kill</span> -QUIT &lt;code&gt;cat <span class="k">${</span><span class="nv">INSTALL_DIR</span><span class="k">}</span>/logs/nginx.pid&lt;/code&gt;
+</span><span class='line'><span class="nb">exit </span>0
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Create a folder named templates on <code>.openshift</code> folder. And create file named <code>nginx.conf.erb</code> in templates folder.
+Content of this file is just default nginx configuration with some modification on <code>listen</code> and <code>location</code> directive.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>nginx.conf.erb <a href="https://gist.github.com/rezajatnika/5857259">https://gist.github.com/rezajatnika/5857259</a> View on Gist </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='erb'><span class='line'><span class="x">&amp;hellip;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;p&gt;server {&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;pre&gt;&lt;code&gt;    listen       &amp;lt;%= ENV[&#39;OPENSHIFT_DIY_IP&#39;] %&amp;gt;:&amp;lt;%= ENV[&#39;OPENSHIFT_DIY_PORT&#39;] %&amp;gt;;</span>
+</span><span class='line'><span class="x">    server_name  localhost;</span>
+</span><span class='line'><span class="x">    port_in_redirect off;</span>
+</span><span class='line'><span class="x">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;p&gt;&amp;hellip;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;p&gt;location / {&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;pre&gt;&lt;code&gt;        root   &amp;lt;%= ENV[&#39;OPENSHIFT_REPO_DIR&#39;] %&amp;gt;/public;</span>
+</span><span class='line'><span class="x">        index  index.html index.htm;</span>
+</span><span class='line'><span class="x">    }</span>
+</span><span class='line'><span class="x">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;p&gt;&amp;hellip;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>And that&rsquo;s it. Just run <code>rake deploy</code> using the <code>Rakefile</code> I provided before. Having a diy
+cartidge on the OpenShift is like having a virtual private server, although we don&rsquo;t actually have
+full access. A small gear in OpenShift provided with 512 MB memory and 1 GB storage. More than enough
+for personal blog or website.</p>
+]]></content>
+  </entry>
+  
+</feed>

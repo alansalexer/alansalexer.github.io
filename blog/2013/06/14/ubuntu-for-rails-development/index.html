@@ -1,0 +1,236 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Ubuntu for Ruby on Rails Development - My Octopress Blog</title>
+	<meta name="author" content="Your Name">
+
+	
+	<meta name="description" content="Setting up Ubuntu for Ruby on Rails development is very easy. Even it&rsquo;s not as easy
+as installing Rails in Windows, developing Rails in Ubuntu &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">My Octopress Blog</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/aboutme">About Me</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/aboutme">About Me</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="https://www.google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:alansalexer.github.io">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+    
+	</div>
+	<form class="search" action="https://www.google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:alansalexer.github.io">
+	</form>
+</nav>
+
+</header>
+	
+		
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Ubuntu for Ruby on Rails Development</h2>
+	<div class="entry-content"><p>Setting up Ubuntu for <a href="http://rubyonrails.org">Ruby on Rails</a> development is very easy. Even it&rsquo;s not as easy
+as installing Rails in Windows, developing Rails in Ubuntu is way better than in
+Windows. I will show you how to build a good environment for Rails development in
+Ubuntu 13.04 (and work on lower version to).</p>
+
+<!-- more -->
+
+
+<h2>Installing Ruby Version Manager (RVM)</h2>
+
+<p>Before installing <a href="http://rvm.io">RVM</a>, Ruby, RubyGems, Rails, etc we need install some required packages
+including git and nodejs.</p>
+
+<pre><code>$ sudo apt-get install build-essential curl git git-core nodejs
+</code></pre>
+
+<p>RVM is a command-line tool which allows you to easily install, manage, and work
+with multiple ruby environments from interpreters to sets of gems. Install RVM
+from command-line:</p>
+
+<pre><code>$ curl -L https://get.rvm.io | bash
+</code></pre>
+
+<p>To get RVM work flawlessly we need to add a line to <code>.bashrc</code> on our home directory.</p>
+
+<pre><code>$ echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] &amp;&amp; source "$HOME/.rvm/scripts/rvm"' &gt;&gt; ~/.bashrc
+</code></pre>
+
+<p>That line will load RVM into a shell session as a function. Check our RVM installation
+from command-line:</p>
+
+<pre><code>$ type rvm | head -1
+</code></pre>
+
+<p>If the output is <code>rvm is a function</code> we have a very functionally RVM. Installing Ruby need several
+additional packages, we can use RVM to automatically install those packages:</p>
+
+<pre><code>$ rvm requirements
+</code></pre>
+
+<p>After installing additional packages we can start install Ruby using RVM.</p>
+
+<p><em>Notes: This RVM installation method is for single user only, to install for multi user
+run those commands from root.</em></p>
+
+<h2>Installing Ruby on Rails</h2>
+
+<p>We use RVM to install Ruby binary, with RVM we can install many version of Ruby and simply manage it. To see
+list of Ruby version:</p>
+
+<pre><code>$ rvm list known
+</code></pre>
+
+<p>To install Ruby 1.9.3-p429 or Ruby 2.0.0-p0</p>
+
+<pre><code>$ rvm install 1.9.3
+$ rvm install 2.0.0p0
+</code></pre>
+
+<p>RVM will automatically install Ruby and RubyGems. If there are no Ruby binaries available, RVM will build it for source.
+This may take a while depending on our CPU. Set a Ruby version to use it as default Ruby:</p>
+
+<pre><code>$ rvm use 1.9.3 --default
+</code></pre>
+
+<p>After we have a working Ruby binary, we can installing Rails by using:</p>
+
+<pre><code>$ gem install rails --no-rdoc --no-ri
+</code></pre>
+
+<p>If you do not want install rdoc and ri documentation every installing a gem, add this line to <code>.gemrc</code> on home directory:</p>
+
+<pre><code>$ echo 'gem: --no-rdoc --no-ri' &gt;&gt; ~/.gemrc
+</code></pre>
+
+<p>You may have to create <code>.gemrc</code> manually.</p>
+
+<h2>Git Configuration</h2>
+
+<p>Now that you have Git installed, it&rsquo;s time to configure your settings.</p>
+
+<h3>Username and Email</h3>
+
+<p>First you need to tell git your name, so that it can properly label the commits you make.</p>
+
+<pre><code>$ git config --global user.name "Your Name Here"
+</code></pre>
+
+<p>Git saves your email address into the commits you make.</p>
+
+<pre><code>$ git config --global user.email "your_email@example.com"
+</code></pre>
+
+<p>After setting up the basic environment you are ready to create Rails project. The advance environment (database, deployment, etc) are in the second part of this post.</p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-14T06:55:00+08:00" pubdate data-updated="true">Jun 14<span>th</span>, 2013</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/rubyonrails/'>rubyonrails</a>
+
+
+</div>
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	</div>
+</div>
+
+
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2014
+
+    Your Name
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+
+
+
+
+</body>
+</html>

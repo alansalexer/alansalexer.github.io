@@ -1,19 +1,49 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
+        <loc>http://alansalexer.github.io/blog/2013/06/14/octopress-on-openshift/</loc>
+        <lastmod>2014-03-17T01:12:59+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://alansalexer.github.io/blog/2013/06/14/ubuntu-for-rails-development/</loc>
+        <lastmod>2014-03-17T01:12:59+08:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://alansalexer.github.io/blog/2013/06/28/ubuntu-for-ruby-on-rails-development-2/
+        </loc>
+        <lastmod>2014-03-17T01:12:59+08:00</lastmod>
+    </url>
+    <url>
         <loc>http://alansalexer.github.io/blog/2014/03/17/title/</loc>
-        <lastmod>2014-03-17T00:30:55+08:00</lastmod>
+        <lastmod>2014-03-17T01:12:59+08:00</lastmod>
     </url>
     <url>
         <loc>http://alansalexer.github.io/</loc>
-        <lastmod>2014-03-17T00:30:55+08:00</lastmod>
+        <lastmod>2014-03-17T01:12:59+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://alansalexer.github.io/archives/</loc>
+        <lastmod>2014-03-17T01:12:59+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://alansalexer.github.io/aboutme/</loc>
+        <lastmod>2014-03-17T01:12:59+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://alansalexer.github.io/blog/</loc>
+        <lastmod>2014-03-17T01:12:59+08:00</lastmod>
     </url>
     <url>
         <loc>http://alansalexer.github.io/blog/archives/</loc>
-        <lastmod>2014-03-17T00:30:55+08:00</lastmod>
+        <lastmod>2014-03-17T01:12:59+08:00</lastmod>
     </url>
     <url>
         <loc>http://alansalexer.github.io/robots.txt</loc>
-        <lastmod>2014-03-17T00:29:34+08:00</lastmod>
+        <lastmod>2014-03-17T01:12:59+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://alansalexer.github.io/404.html</loc>
+        <lastmod>2014-03-17T01:12:59+08:00</lastmod>
     </url>
 </urlset>
