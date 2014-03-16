@@ -1,7 +1,13 @@
 ---
 layout: post
-title: "title"
+title: "Finally, A Tech Blog!"
 date: 2014-03-17 00:30:55 +0800
 comments: true
-categories: 
+categories: thoughts 
 ---
+OK, after spending some time learning&configuring Octopress, I've established this blog.
+I wanna put some snippets and thoughts in this tech blog. It's OK to write them all on Evernote, but Evernote isn't designed for coders... It's so uncomfortable when coming to syntax highlighting.
+Online blog is a better choice for things related to coding.
+
+Recently, I want to exercise more on codeforces especially using Python. This blog may help me review and track my progress and I hope this may help you more or less if Google brings you here.
+Code Rocks!
