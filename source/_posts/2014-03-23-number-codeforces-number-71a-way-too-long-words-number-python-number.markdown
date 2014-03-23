@@ -3,7 +3,7 @@ layout: post
 title: "#CODEFORCES#71A_Way_Too_Long_Words#Python#"
 date: 2014-03-23 20:54:15 +0800
 comments: true
-categories: 
+categories: [codeforces,python] 
 ---
 #PYTHON Solution: CF 71A
 
