@@ -4,7 +4,7 @@
   <title><![CDATA[Be Professional!]]></title>
   <link href="http://alansalexer.github.io/atom.xml" rel="self"/>
   <link href="http://alansalexer.github.io/"/>
-  <updated>2014-03-17T02:01:37+08:00</updated>
+  <updated>2014-03-23T21:53:15+08:00</updated>
   <id>http://alansalexer.github.io/</id>
   <author>
     <name><![CDATA[Chandler Qian]]></name>
@@ -12,6 +12,39 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[#CODEFORCES#71A_Way_Too_Long_Words#Python#]]></title>
+    <link href="http://alansalexer.github.io/blog/2014/03/23/number-codeforces-number-71a-way-too-long-words-number-python-number/"/>
+    <updated>2014-03-23T20:54:15+08:00</updated>
+    <id>http://alansalexer.github.io/blog/2014/03/23/number-codeforces-number-71a-way-too-long-words-number-python-number</id>
+    <content type="html"><![CDATA[<h1>PYTHON Solution: CF 71A</h1>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">input</span><span class="p">()):</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">=</span><span class="nb">raw_input</span><span class="p">()</span>
+</span><span class='line'>  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">10</span><span class="p">:</span>
+</span><span class='line'>      <span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span><span class='line'>  <span class="k">print</span> <span class="n">s</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is actually a very basic and simple solution, here we can summarize what we learn from this solution as a beginner:</p>
+
+<ul>
+<li><code>input()</code> for reading the first line of input which means the total number of test cases and treat it as integer.</li>
+<li><code>range()</code> as loop times,</li>
+<li><code>raw_input()</code> for reading input test cases.</li>
+<li><code>str(len())</code> for concatencating integers with strings.</li>
+<li><code>s[-1]</code> as the last character of the string.</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Finally, A Tech Blog!]]></title>
