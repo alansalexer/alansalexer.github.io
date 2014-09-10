@@ -4,7 +4,7 @@
   <title><![CDATA[Category: python | Be Professional!]]></title>
   <link href="http://alansalexer.github.io/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://alansalexer.github.io/"/>
-  <updated>2014-09-10T17:42:32+08:00</updated>
+  <updated>2014-09-10T17:46:42+08:00</updated>
   <id>http://alansalexer.github.io/</id>
   <author>
     <name><![CDATA[Chandler Qian]]></name>
@@ -25,6 +25,7 @@
 <li>Open the file located in /source folder and start composing
 Either Sublime-Text or</li>
 <li>rake generate</li>
+<li>rake preview</li>
 <li>rake deploy</li>
 <li>git add . -A &amp;&amp; git commit -m &ldquo;upload some post&rdquo; &amp;&amp; git push origin source</li>
 </ul>
