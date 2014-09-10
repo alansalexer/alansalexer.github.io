@@ -4,7 +4,7 @@
   <title><![CDATA[Be Professional!]]></title>
   <link href="http://alansalexer.github.io/atom.xml" rel="self"/>
   <link href="http://alansalexer.github.io/"/>
-  <updated>2014-09-10T17:46:42+08:00</updated>
+  <updated>2014-09-10T18:13:19+08:00</updated>
   <id>http://alansalexer.github.io/</id>
   <author>
     <name><![CDATA[Chandler Qian]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[#CODEFORCES#fight python strings]]></title>
+    <link href="http://alansalexer.github.io/blog/2014/09/10/number-codeforces-number-fight-python-strings/"/>
+    <updated>2014-09-10T18:08:23+08:00</updated>
+    <id>http://alansalexer.github.io/blog/2014/09/10/number-codeforces-number-fight-python-strings</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve been using Python for a while but still feel unfamiliar. I find CodeForces is a good place to practice because I can order the practices by difficulty(how many people ever solved it) and reference others&#8217; solutions so that I can improve.</p>
+
+<p>Here are two urls I&rsquo;ll used much often:<br/>
+<a href="http://codeforces.com/problemset/tags/strings?order=BY_SOLVED_DESC  ">http://codeforces.com/problemset/tags/strings?order=BY_SOLVED_DESC  </a>
+<a href="http://codeforces.com/problemset/status/118/problem/A">http://codeforces.com/problemset/status/118/problem/A</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Octopress workflow]]></title>
