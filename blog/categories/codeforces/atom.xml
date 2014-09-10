@@ -4,7 +4,7 @@
   <title><![CDATA[Category: codeforces | Be Professional!]]></title>
   <link href="http://alansalexer.github.io/blog/categories/codeforces/atom.xml" rel="self"/>
   <link href="http://alansalexer.github.io/"/>
-  <updated>2014-09-10T17:24:22+08:00</updated>
+  <updated>2014-09-10T17:42:32+08:00</updated>
   <id>http://alansalexer.github.io/</id>
   <author>
     <name><![CDATA[Chandler Qian]]></name>
@@ -12,6 +12,27 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress workflow]]></title>
+    <link href="http://alansalexer.github.io/blog/2014/09/10/octopress-workflow/"/>
+    <updated>2014-09-10T17:33:54+08:00</updated>
+    <id>http://alansalexer.github.io/blog/2014/09/10/octopress-workflow</id>
+    <content type="html"><![CDATA[<p>OK, after we set up an Octopress blog, here&rsquo;s the basic workflow to create blogs and publish them to Github Pages:</p>
+
+<ul>
+<li>rake new_post[&ldquo;your_title&rdquo;]</li>
+<li>Open the file located in /source folder and start composing
+Either Sublime-Text or</li>
+<li>rake generate</li>
+<li>rake deploy</li>
+<li>git add . -A &amp;&amp; git commit -m &ldquo;upload some post&rdquo; &amp;&amp; git push origin source</li>
+</ul>
+
+
+<p>A little explanation: we still need the dirty Git operations because this saves our works to <code>source</code> branch, while <code>rake deploy</code> only push stuff to master branch for display.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[#CODEFORCES#71A_Way_Too_Long_Words#Python#]]></title>

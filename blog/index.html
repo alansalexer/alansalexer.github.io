@@ -7,12 +7,7 @@
 	<meta name="author" content="Chandler Qian">
 
 	
-	<meta name="description" content="PYTHON Solution: CF 71A 1
-2
-3
-4
-5
-for i in range(input()): s=raw_input() if len(s)&gt;10: s=s[0]+str(len(s)-2)+s[-1] print s This is actually a very &hellip;">
+	<meta name="description" content="OK, after we set up an Octopress blog, here&rsquo;s the basic workflow to create blogs and publish them to Github Pages: rake new_post[&ldquo; &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -83,6 +78,59 @@ for i in range(input()): s=raw_input() if len(s)&gt;10: s=s[0]+str(len(s)-2)+s[-
 		
 	
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2014/09/10/octopress-workflow/">
+		
+			Octopress Workflow</a>
+	</h2>
+	<div class="entry-content">
+		<p>OK, after we set up an Octopress blog, here&rsquo;s the basic workflow to create blogs and publish them to Github Pages:</p>
+
+<ul>
+<li>rake new_post[&ldquo;your_title&rdquo;]</li>
+<li>Open the file located in /source folder and start composing
+Either Sublime-Text or</li>
+<li>rake generate</li>
+<li>rake deploy</li>
+<li>git add . -A &amp;&amp; git commit -m &ldquo;upload some post&rdquo; &amp;&amp; git push origin source</li>
+</ul>
+
+
+<p>A little explanation: we still need the dirty Git operations because this saves our works to <code>source</code> branch, while <code>rake deploy</code> only push stuff to master branch for display.</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-10T17:33:54+08:00" pubdate data-updated="true">Sep 10<span>th</span>, 2014</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/codeforces/'>codeforces</a>, <a class='category' href='/blog/categories/python/'>python</a>
+
+
+</div>
+	
+</div>
+</article>
 
 
     <article class="post">
