@@ -2,50 +2,56 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://alansalexer.github.io/blog/2014/03/17/title/</loc>
-        <lastmod>2014-03-17T01:41:23+08:00</lastmod>
+        <lastmod>2014-10-05T15:45:09+08:00</lastmod>
     </url>
     <url>
         <loc>
             http://alansalexer.github.io/blog/2014/03/23/number-codeforces-number-71a-way-too-long-words-number-python-number/
         </loc>
-        <lastmod>2014-03-23T23:11:28+08:00</lastmod>
+        <lastmod>2014-10-05T15:45:09+08:00</lastmod>
     </url>
     <url>
         <loc>http://alansalexer.github.io/blog/2014/09/10/octopress-workflow/</loc>
-        <lastmod>2014-09-10T17:46:31+08:00</lastmod>
+        <lastmod>2014-10-05T15:46:30+08:00</lastmod>
     </url>
     <url>
         <loc>
             http://alansalexer.github.io/blog/2014/09/10/number-codeforces-number-fight-python-strings/
         </loc>
-        <lastmod>2014-09-10T18:13:08+08:00</lastmod>
+        <lastmod>2014-10-05T15:46:30+08:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://alansalexer.github.io/blog/2014/09/10/number-codeforces-number-118a-string-task-number-python-number/
+        </loc>
+        <lastmod>2014-10-05T15:46:30+08:00</lastmod>
     </url>
     <url>
         <loc>http://alansalexer.github.io/</loc>
-        <lastmod>2014-09-10T18:13:08+08:00</lastmod>
+        <lastmod>2014-10-05T15:46:30+08:00</lastmod>
     </url>
     <url>
         <loc>http://alansalexer.github.io/archives/</loc>
-        <lastmod>2014-09-10T18:13:08+08:00</lastmod>
+        <lastmod>2014-10-05T15:46:30+08:00</lastmod>
     </url>
     <url>
         <loc>http://alansalexer.github.io/aboutme/</loc>
-        <lastmod>2014-03-17T02:01:06+08:00</lastmod>
+        <lastmod>2014-10-05T15:45:09+08:00</lastmod>
     </url>
     <url>
         <loc>http://alansalexer.github.io/blog/</loc>
-        <lastmod>2014-09-10T18:13:08+08:00</lastmod>
+        <lastmod>2014-10-05T15:46:30+08:00</lastmod>
     </url>
     <url>
         <loc>http://alansalexer.github.io/blog/archives/</loc>
-        <lastmod>2014-09-10T18:13:08+08:00</lastmod>
+        <lastmod>2014-10-05T15:46:30+08:00</lastmod>
     </url>
     <url>
         <loc>http://alansalexer.github.io/robots.txt</loc>
-        <lastmod>2014-03-17T01:12:59+08:00</lastmod>
+        <lastmod>2014-10-05T15:45:09+08:00</lastmod>
     </url>
     <url>
         <loc>http://alansalexer.github.io/404.html</loc>
-        <lastmod>2014-03-17T01:12:59+08:00</lastmod>
+        <lastmod>2014-10-05T15:45:09+08:00</lastmod>
     </url>
 </urlset>

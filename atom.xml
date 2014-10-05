@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Be Professional!]]></title>
+  <title><![CDATA[MetaSand - Chandler's IT-island!]]></title>
   <link href="http://alansalexer.github.io/atom.xml" rel="self"/>
   <link href="http://alansalexer.github.io/"/>
-  <updated>2014-09-10T18:29:51+08:00</updated>
+  <updated>2014-10-05T15:59:27+08:00</updated>
   <id>http://alansalexer.github.io/</id>
   <author>
     <name><![CDATA[Chandler Qian]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[#CODEFORCES#118A String Task#Python#]]></title>
+    <link href="http://alansalexer.github.io/blog/2014/09/10/number-codeforces-number-118a-string-task-number-python-number/"/>
+    <updated>2014-09-10T18:30:38+08:00</updated>
+    <id>http://alansalexer.github.io/blog/2014/09/10/number-codeforces-number-118a-string-task-number-python-number</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[#CODEFORCES#fight python strings]]></title>
