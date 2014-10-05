@@ -11,6 +11,7 @@ OK, after we set up an Octopress blog, here's the basic workflow to create blogs
 * Open the file located in /source folder and start composing
 Either Sublime-Text or 
 * rake generate
+* rake preview
 * rake deploy
 * git add . -A && git commit -m "upload some post" && git push origin source
 
